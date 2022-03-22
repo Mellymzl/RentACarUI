@@ -1,1 +1,20 @@
-<p>car-detail works!</p>
+
+<div *ngIf="car; else carNotFound" >
+<p-card>
+    <ng-template pTemplate="header">   
+      {{car.name}}   {{car.color}}{{car.brand}}
+    </ng-template>
+   
+    <ng-template pTemplate="footer">
+  
+    </ng-template>
+</p-card>
+
+</div>
+
+
+<ng-template #carNotFound>
+
+<h3> Araba Bulunamadı</h3>
+   
+</ng-template>

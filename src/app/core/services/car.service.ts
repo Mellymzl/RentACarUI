@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import carDetailModel from 'src/app/models/carDetailModel';
 import { carModel } from 'src/app/models/carModel';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { carModel } from 'src/app/models/carModel';
 })
 export class CarService {
 
-  apiUrl: string = "http://localhost:5050/api/Cars/getall";
+  apiUrl: string = "http://localhost:5050/api/Cars/";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -16,7 +17,16 @@ export class CarService {
 
   getall(): Observable<carModel[]> {
 
-    return this.httpClient.get<carModel[]>(this.apiUrl);
+    return this.httpClient.get<carModel[]>(this.apiUrl+"getall");
+  }
+  getById(id:number): Observable<carDetailModel> {
+
+    return this.httpClient.get<carDetailModel>(this.apiUrl+"getbyid/"+id);
+  }
+
+  getbyBrandID(brandid:number): Observable<carModel[]> {
+
+    return this.httpClient.get<carModel[]>(this.apiUrl+"getallbybrand/"+brandid);
   }
 }
 

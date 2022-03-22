@@ -1,4 +1,6 @@
 <div *ngFor="let car of cars">
+
+
     <p-card header={{car.name}} subheader="{{car.color}} {{car.brand}} " [style]="{width: '100%'}"
         styleClass="p-card-shadow">
 
@@ -11,7 +13,7 @@
 
         <ng-template pTemplate="footer">
 
-            <p-button label="Fiyatı">Fiyatı: {{car.dailyPrice}} </p-button>
+            <p-button label="Fiyatı" routerLink="cardetail/{{car.id}}">Fiyatı: {{car.dailyPrice}} </p-button>
 
         </ng-template>
     </p-card>

@@ -28,8 +28,10 @@ isLoading : boolean=true;
      
 
       this.brands[index].idAndName=  this.brands[index].id +" "+ this.brands[index].name;
+      this.selectedBrand = this.brands[0]
     }
   })
   }
 
-}
+  }
+
