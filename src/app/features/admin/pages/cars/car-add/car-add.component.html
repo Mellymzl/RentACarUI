@@ -1,0 +1,63 @@
+<div class="content">
+    <div class="col-md-12">
+
+
+        <div class="card">
+            <div class="card-header">
+                <h5>Araba Ekle</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="carAddForm">
+                    <div class="mb-3">
+                        <label> Araba Adı </label>
+                        <div class="form-group">
+
+                            <input type="text" id="name" formControlName="name" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label> Açıklama </label>
+                        <div class="form-group">
+
+                            <input type="text" id="description" formControlName="description" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label> Günlük Fiyatı </label>
+                        <div class="form-group">
+
+                            <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label> Renk </label>
+                        <!-- <div class="form-group">
+
+                            <input type="number" id="colorId" formControlName="colorId" class="form-control">
+                        </div> -->
+                        <select class="form-select" aria-label="Default" formControlName="colorId">
+                            <option *ngFor="let color of colors" value="{{color.id}}" class="form-control">{{color.name}}</option>
+                           
+                          </select>
+                    </div>
+                    <div class="mb-3">
+                        <label> Marka </label>
+                        <!-- <div class="form-group">
+
+                            <input type="number" id="brandId" formControlName="brandId" class="form-control">
+                        </div> -->
+                        <select class="form-select" aria-label="Default" formControlName="brandId">
+                            <option *ngFor="let brand of brands" value="{{brand.id}}" class="form-control">{{brand.name}}</option>
+                           
+                          </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button (click)="add()" class="btn btn-fill btn-primary">Ekle</button>
+        </div>
+    </div>
+
+</div>

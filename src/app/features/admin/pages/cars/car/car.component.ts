@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarService } from 'src/app/core/services/car.service';
-import { carModel } from 'src/app/models/carModel';
+import { carModel } from 'src/app/core/models/car/carModel';
 
 @Component({
   selector: 'app-car',
@@ -19,19 +19,21 @@ export class CarComponent implements OnInit {
 
     this.activatedRoute.params.subscribe(params => {
       if (params["brandid"]) {
-        this.carService.getbyBrandID(params["brandid"]).subscribe(data => this.cars = data)
+        this.carService.getbyBrandId(params["brandid"]).subscribe(data => this.cars = data)
       }
-      else {
+      else if (params["colorid"]) {
+        this.carService.getbyColorId(params["colorid"]).subscribe(data => this.cars = data)
+      } else {
         this.carService.getall().subscribe(data => {
 
           this.cars = data;
         })
       }
-      })
+    })
 
 
 
-    }
   }
+}
 
-  
+
