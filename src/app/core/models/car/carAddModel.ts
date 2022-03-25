@@ -1,4 +1,4 @@
-export default interface carAddModel{
+export default interface CarAddModel{
 
     brandId:number;
     name: string;

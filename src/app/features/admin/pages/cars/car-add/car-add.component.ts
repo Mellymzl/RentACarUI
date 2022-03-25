@@ -3,8 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BrandService } from 'src/app/core/services/brand.service';
 import { CarService } from 'src/app/core/services/car.service';
 import { ColorService } from 'src/app/core/services/color.service';
-import { brandModel } from 'src/app/core/models/brand/brandModel';
 import { ColorModel } from 'src/app/core/models/color/colorModel';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { BrandModel } from 'src/app/core/models/brand/brandModel';
 
 @Component({
   selector: 'app-car-add',
@@ -14,9 +15,10 @@ import { ColorModel } from 'src/app/core/models/color/colorModel';
 export class CarAddComponent implements OnInit {
 
   carAddForm: FormGroup;
-  brands: brandModel[]
+  brands: BrandModel[]
   colors: ColorModel[]
-  constructor(private formBuilder: FormBuilder, private carService: CarService, private brandService: BrandService, private colorService: ColorService) { }
+  constructor(private formBuilder: FormBuilder, private carService: CarService, private brandService: BrandService, private colorService: ColorService,
+    private confirmationService: ConfirmationService, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.brandService.getAll().subscribe(data => {
@@ -42,18 +44,28 @@ export class CarAddComponent implements OnInit {
   }
 
   add() {
+    this.confirmationService.confirm({
+      message: 'Emin misiniz?',
+      accept: () => {
+        if (this.carAddForm.valid) {
 
-    if (this.carAddForm.valid) {
-      console.log("basarılı")
-      this.carService.add(this.carAddForm.value).subscribe(data => {
+          this.carService.add(this.carAddForm.value).subscribe(data => {
 
-        alert("kayıt başarılı");
-        location.reload();
-      });
+            this.messageService.add({ severity: 'success', summary: 'Başarılı', detail: 'Araba eklendi' });
 
-    }
+            location.reload()
+          });
 
-    else { }
+        }
+
+        else
+
+          this.messageService.add({ severity: 'error', summary: 'Hata', detail: 'Bir hata oluştu' });
+      }
+
+    });
+
+
   }
 
 }

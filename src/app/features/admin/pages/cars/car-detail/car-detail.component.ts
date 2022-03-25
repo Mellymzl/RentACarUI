@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarService } from 'src/app/core/services/car.service';
-import carDetailModel from 'src/app/core/models/car/carDetailModel';
+import CarDetailModel from 'src/app/core/models/car/carDetailModel';
 
 @Component({
   selector: 'app-car-detail',
@@ -11,7 +11,7 @@ import carDetailModel from 'src/app/core/models/car/carDetailModel';
 export class CarDetailComponent implements OnInit {
 
   constructor(private  activatedRoute: ActivatedRoute, private carService: CarService) { }
-  car:carDetailModel;
+  car:CarDetailModel;
   
   ngOnInit(): void {
 

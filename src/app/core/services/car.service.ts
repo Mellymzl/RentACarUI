@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import carAddModel from 'src/app/core/models/car/carAddModel';
-import carDetailModel from 'src/app/core/models/car/carDetailModel';
-import { carModel } from 'src/app/core/models/car/carModel';
+import CarAddModel from 'src/app/core/models/car/carAddModel';
+import CarDetailModel from 'src/app/core/models/car/carDetailModel';
+import { CarModel } from 'src/app/core/models/car/carModel';
+import CarUpdateModel from '../models/car/carUpdateModel';
 
 @Injectable({
   providedIn: 'root'
@@ -16,25 +17,33 @@ export class CarService {
 
 
 
-  getall(): Observable<carModel[]> {
+  getall(): Observable<CarModel[]> {
 
-    return this.httpClient.get<carModel[]>(this.apiUrl + "getall");
+    return this.httpClient.get<CarModel[]>(this.apiUrl + "getall");
   }
-  getById(id: number): Observable<carDetailModel> {
+  getById(id: number): Observable<CarDetailModel> {
 
-    return this.httpClient.get<carDetailModel>(this.apiUrl + "getbyid/" + id);
+    return this.httpClient.get<CarDetailModel>(this.apiUrl + "getbyid/" + id);
   }
 
-  getbyBrandId(brandid: number): Observable<carModel[]> {
+  getbyBrandId(brandid: number): Observable<CarModel[]> {
 
-    return this.httpClient.get<carModel[]>(this.apiUrl + "getallbybrandid/" + brandid);
+    return this.httpClient.get<CarModel[]>(this.apiUrl + "getallbybrandid/" + brandid);
   }
-  getbyColorId(colorid: number): Observable<carModel[]> {
+  getbyColorId(colorid: number): Observable<CarModel[]> {
 
-    return this.httpClient.get<carModel[]>(this.apiUrl + "getallbycolorid/" + colorid);
+    return this.httpClient.get<CarModel[]>(this.apiUrl + "getallbycolorid/" + colorid);
   }
-  add(car: carAddModel) {
+  add(car: CarAddModel) {
     return this.httpClient.post(this.apiUrl + "add", car);
+  }
+
+  update(car: CarUpdateModel) {
+    return this.httpClient.post(this.apiUrl + "update", car);
+  }
+
+  delete(car: CarModel) {
+    return this.httpClient.post(this.apiUrl + "delete", car);
   }
 }
 

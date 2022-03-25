@@ -25,8 +25,10 @@ import { ColorAddComponent } from './features/admin/pages/colors/color-add/color
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ToastModule} from 'primeng/toast';
 import {DialogModule} from 'primeng/dialog';
-
-
+import {InputNumberModule} from 'primeng/inputnumber';
+import {InputTextModule} from 'primeng/inputtext';
+import {ToolbarModule} from 'primeng/toolbar';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +57,11 @@ import {DialogModule} from 'primeng/dialog';
     ReactiveFormsModule,
     ToastModule,
     ConfirmDialogModule,
-    DialogModule
+    DialogModule,
+    InputNumberModule,
+    InputTextModule,
+    InputTextareaModule,
+    ToolbarModule
 
 
   ],

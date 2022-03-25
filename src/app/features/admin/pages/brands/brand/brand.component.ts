@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BrandService } from 'src/app/core/services/brand.service';
-import { brandModel } from 'src/app/core/models/brand/brandModel';
+import { BrandModel } from 'src/app/core/models/brand/brandModel';
 
 
 
@@ -11,8 +11,8 @@ import { brandModel } from 'src/app/core/models/brand/brandModel';
 })
 
 export class BrandComponent implements OnInit {
-  brands :brandModel[];
-  selectedBrand: brandModel;
+  brands :BrandModel[];
+  selectedBrand: BrandModel;
 
   constructor(private brandservice: BrandService) { }
 

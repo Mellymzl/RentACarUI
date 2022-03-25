@@ -1,4 +1,4 @@
-export interface brandAddModel{
+export interface BrandAddModel{
 
     name:string;
 }

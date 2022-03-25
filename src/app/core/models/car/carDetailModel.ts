@@ -1,4 +1,4 @@
-export default interface carDetailModel{
+export default interface CarDetailModel{
     id:number;
     brand:string;
     name: string;

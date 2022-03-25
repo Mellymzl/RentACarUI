@@ -37,9 +37,10 @@
                             <input type="number" id="colorId" formControlName="colorId" class="form-control">
                         </div> -->
                         <select class="form-select" aria-label="Default" formControlName="colorId">
-                            <option *ngFor="let color of colors" value="{{color.id}}" class="form-control">{{color.name}}</option>
-                           
-                          </select>
+                            <option *ngFor="let color of colors" value="{{color.id}}" class="form-control">
+                                {{color.name}}</option>
+
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label> Marka </label>
@@ -48,16 +49,19 @@
                             <input type="number" id="brandId" formControlName="brandId" class="form-control">
                         </div> -->
                         <select class="form-select" aria-label="Default" formControlName="brandId">
-                            <option *ngFor="let brand of brands" value="{{brand.id}}" class="form-control">{{brand.name}}</option>
-                           
-                          </select>
+                            <option *ngFor="let brand of brands" value="{{brand.id}}" class="form-control">
+                                {{brand.name}}</option>
+
+                        </select>
                     </div>
                 </form>
             </div>
         </div>
         <div class="card-footer">
-            <button (click)="add()" class="btn btn-fill btn-primary">Ekle</button>
+            <button (click)="add()" class="btn btn-fill btn-primary" style="float: right;">Ekle</button>
         </div>
     </div>
 
 </div>
+
+

@@ -29,7 +29,7 @@ export class ColorAddComponent implements OnInit {
 
 
     this.confirmationService.confirm({
-      message: 'Are you sure that you want to perform this action?',
+      message: 'Emin misiniz?',
       accept: () => {
         if (this.colorAddForm.valid) {
 

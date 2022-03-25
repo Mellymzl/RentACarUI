@@ -1,4 +1,4 @@
-export default interface colorAddModel{
+export default interface ColorAddModel{
 
     name:string;
 

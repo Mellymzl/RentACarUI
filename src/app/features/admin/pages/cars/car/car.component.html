@@ -1,8 +1,16 @@
-<p-toast></p-toast>
 
+<p-dialog *ngIf="isNewCar" header="Title" [(visible)]="isNewCar"[style]="{width: '800px'}"  [modal]="true" styleClass="p-fluid">
+    
+    <app-car-add></app-car-add>
+</p-dialog>
 <div class="card">
   
+    <p-toolbar styleClass="mb-4">
+        <ng-template pTemplate="left">
+            <button pButton pRipple label="Yeni Araba Ekle" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+        </ng-template>
 
+    </p-toolbar>
     <p-table #dt [value]="cars" [rows]="10" [paginator]="true" [globalFilterFields]="['name','country.name','representative.name','status']" responsiveLayout="scroll"
         [(selection)]="selectedCar" [rowHover]="true" dataKey="id"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
@@ -33,7 +41,7 @@
                 <td>{{car.dailyPrice}}</td>
                 <td>
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editCar(car)"></button>
-                 
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteCar(car)"></button>
                 </td>
             </tr>
         </ng-template>
@@ -42,7 +50,8 @@
 </div>
 
 
-<p-dialog [(visible)]="carDialog" [style]="{width: '450px'}" header="Araba detay" [modal]="true" styleClass="p-fluid">
+
+<p-dialog [(visible)]="carDialog" [style]="{width: '450px'}" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
       
         <div class="field">
@@ -56,28 +65,19 @@
         </div>
         <div class="field">
             <label for="color">Renk</label>
-            <p-dropdown [(ngModel)]="car.colorId" inputId="color" [options]="colors" placeholder="Select">
-                <ng-template let-option pTemplate="item">
-                    <span [class]="'product-badge status-' + option.value">{{option.name}}</span>
-                </ng-template>
+            <p-dropdown  [(ngModel)]="selectedColor"  [options]="colors" placeholder="Select" optionLabel="name">
             </p-dropdown>
         </div>
         <div class="field">
             <label for="brandId">Marka</label>
-            <p-dropdown [(ngModel)]="car.brandId" inputId="brandId" [options]="brands" placeholder="Select">
-                <ng-template let-option pTemplate="item">
-                    <span [class]="'product-badge status-' + option.value">{{option.name}}</span>
-                </ng-template>
+            <p-dropdown [(ngModel)]="selectedBrand" [options]="brands" placeholder="Select" optionLabel="name">
             </p-dropdown>
         </div>
 
-   
-        <div class="formgrid grid">
-            <div class="field col">
-                <label for="price">Fiyat</label>
-                <p-inputNumber id="price" [(ngModel)]="car.dailyPrice" mode="currency" currency="USD" locale="en-US"></p-inputNumber>
-            </div>
-           
+        <div class="field">
+            <label for="name">Fiyat</label>
+            <input type="text" pInputText id="name" [(ngModel)]="car.dailyPrice" required autofocus />
+     
         </div>
     </ng-template>
 
@@ -85,8 +85,11 @@
         <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
         <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveCar(car)"></button>
     </ng-template>
+
+   
 </p-dialog>
 
 
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
 
-
+<p-toast ></p-toast>
