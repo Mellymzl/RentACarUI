@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BrandService } from 'src/app/core/services/brand.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-brand-add',
   templateUrl: './brand-add.component.html',
@@ -27,6 +28,7 @@ export class BrandAddComponent implements OnInit {
       this.brandService.add(this.brandAddForm.value).subscribe(data => {
 
         alert("Kayıt başarılı");
+        location.reload();
       });
 
     }

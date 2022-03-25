@@ -1,5 +1,5 @@
-export  interface colorModel{
+export  interface ColorModel{
     id:number;
-    name:string;
+    name?:string;
 
 }

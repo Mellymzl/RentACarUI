@@ -8,7 +8,7 @@ import { brandAddModel } from '../models/brand/brandAddModel';
   providedIn: 'root'
 })
 export class BrandService {
-  apiUrl: string = "http://localhost:5050/api/Brands";
+  apiUrl: string = "http://localhost:5050/api/Brands/";
   constructor(private httpClient: HttpClient) { }
 
 

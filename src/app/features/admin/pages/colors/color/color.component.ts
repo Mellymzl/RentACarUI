@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ColorService } from 'src/app/core/services/color.service';
-import { colorModel } from 'src/app/core/models/color/colorModel';
+import { ColorModel } from 'src/app/core/models/color/colorModel';
 
 @Component({
   selector: 'app-color',
@@ -9,13 +9,16 @@ import { colorModel } from 'src/app/core/models/color/colorModel';
 })
 export class ColorComponent implements OnInit {
 
-  colors:colorModel [];
-  selectedColor:colorModel;
+  colors:ColorModel [];
+  selectedColor:ColorModel ={id: 1};
   constructor(private colorService: ColorService) { }
 
   ngOnInit(): void {
 
-    this.colorService.getall().subscribe(data=>{this.colors=data;})
+    this.colorService.getall().subscribe(data=>{
+      this.colors=data;
+      this.selectedColor = this.colors[0]
+    })
    
   }
 

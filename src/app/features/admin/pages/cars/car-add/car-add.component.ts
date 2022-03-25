@@ -4,7 +4,7 @@ import { BrandService } from 'src/app/core/services/brand.service';
 import { CarService } from 'src/app/core/services/car.service';
 import { ColorService } from 'src/app/core/services/color.service';
 import { brandModel } from 'src/app/core/models/brand/brandModel';
-import { colorModel } from 'src/app/core/models/color/colorModel';
+import { ColorModel } from 'src/app/core/models/color/colorModel';
 
 @Component({
   selector: 'app-car-add',
@@ -15,7 +15,7 @@ export class CarAddComponent implements OnInit {
 
   carAddForm: FormGroup;
   brands: brandModel[]
-  colors: colorModel[]
+  colors: ColorModel[]
   constructor(private formBuilder: FormBuilder, private carService: CarService, private brandService: BrandService, private colorService: ColorService) { }
 
   ngOnInit(): void {
@@ -48,6 +48,7 @@ export class CarAddComponent implements OnInit {
       this.carService.add(this.carAddForm.value).subscribe(data => {
 
         alert("kayıt başarılı");
+        location.reload();
       });
 
     }

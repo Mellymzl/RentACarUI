@@ -20,10 +20,12 @@ export class BrandComponent implements OnInit {
 
   this.brandservice.getAll().subscribe(data=>{
 
-    this.brands=data; 
+    this.brands=data;  
+   this.selectedBrand = this.brands[0];
+
 
   })
-  }
+  }       
 
   }
 

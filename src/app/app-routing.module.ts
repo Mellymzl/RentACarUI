@@ -13,8 +13,8 @@ const routes: Routes = [
     path:"", pathMatch:"full", component: CarComponent
   },
   {path: "cars", component:CarComponent},
-  {path: "cars/:brandid", component:CarComponent},
-  {path: "cars/:colorid", component:CarComponent},
+  {path: "cars/brand/:brandid", component:CarComponent},
+  {path: "cars/color/:colorid", component:CarComponent},
   {path: "cardetail/:id", component:CarDetailComponent},
   {path:"caradd", component:CarAddComponent},
   {path:"coloradd", component:ColorAddComponent},

@@ -1,20 +1,92 @@
-<div *ngFor="let car of cars">
+<p-toast></p-toast>
 
+<div class="card">
+  
 
-    <p-card header={{car.name}} subheader="{{car.color}} {{car.brand}} " [style]="{width: '100%'}"
-        styleClass="p-card-shadow">
-
+    <p-table #dt [value]="cars" [rows]="10" [paginator]="true" [globalFilterFields]="['name','country.name','representative.name','status']" responsiveLayout="scroll"
+        [(selection)]="selectedCar" [rowHover]="true" dataKey="id"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+       
         <ng-template pTemplate="header">
-
-              </ng-template>
-
-        <p>{{car.description}} </p>
-
-
-        <ng-template pTemplate="footer">
-
-            <p-button label="Fiyatı" routerLink="/cardetail/{{car.id}}">Fiyatı: {{car.dailyPrice}} </p-button>
-
+            <tr>
+                <th style="width: 3rem">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+                <th>Araba Adı</th>
+                <th>Renk</th>
+                <th>Marka</th>
+                <th>Açıklama</th>
+                <th>Günlük Fiyat</th>
+               
+                <th></th>
+            </tr>
         </ng-template>
-    </p-card>
+        <ng-template pTemplate="body" let-car>
+            <tr>
+                <td>
+                    <p-tableCheckbox [value]="car"></p-tableCheckbox>
+                </td>
+                <td>{{car.name}}</td>
+                <td>{{car.color}}</td>
+                <td>{{car.brand}}</td>
+                <td>{{car.description}}</td>
+                <td>{{car.dailyPrice}}</td>
+                <td>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editCar(car)"></button>
+                 
+                </td>
+            </tr>
+        </ng-template>
+     
+    </p-table>
 </div>
+
+
+<p-dialog [(visible)]="carDialog" [style]="{width: '450px'}" header="Araba detay" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+      
+        <div class="field">
+            <label for="name">Ad</label>
+            <input type="text" pInputText id="name" [(ngModel)]="car.name" required autofocus />
+     
+        </div>
+        <div class="field">
+            <label for="description">Açıklama</label>
+            <textarea id="description" pInputTextarea [(ngModel)]="car.description" required rows="3" cols="20"></textarea>
+        </div>
+        <div class="field">
+            <label for="color">Renk</label>
+            <p-dropdown [(ngModel)]="car.colorId" inputId="color" [options]="colors" placeholder="Select">
+                <ng-template let-option pTemplate="item">
+                    <span [class]="'product-badge status-' + option.value">{{option.name}}</span>
+                </ng-template>
+            </p-dropdown>
+        </div>
+        <div class="field">
+            <label for="brandId">Marka</label>
+            <p-dropdown [(ngModel)]="car.brandId" inputId="brandId" [options]="brands" placeholder="Select">
+                <ng-template let-option pTemplate="item">
+                    <span [class]="'product-badge status-' + option.value">{{option.name}}</span>
+                </ng-template>
+            </p-dropdown>
+        </div>
+
+   
+        <div class="formgrid grid">
+            <div class="field col">
+                <label for="price">Fiyat</label>
+                <p-inputNumber id="price" [(ngModel)]="car.dailyPrice" mode="currency" currency="USD" locale="en-US"></p-inputNumber>
+            </div>
+           
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveCar(car)"></button>
+    </ng-template>
+</p-dialog>
+
+
+
+

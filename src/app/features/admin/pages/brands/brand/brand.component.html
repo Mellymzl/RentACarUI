@@ -4,5 +4,5 @@
 <p-dropdown [options]="brands" [(ngModel)]="selectedBrand" optionLabel="name"></p-dropdown> -->
 
 <p-listbox [options]="brands" [(ngModel)]="selectedBrand" optionLabel="name"
-routerLink="/cars/{{selectedBrand.id}}">
+routerLink="/cars/brand/{{selectedBrand.id}}">
 </p-listbox>

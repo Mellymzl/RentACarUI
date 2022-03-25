@@ -22,6 +22,11 @@ import { CarAddComponent } from './features/admin/pages/cars/car-add/car-add.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrandAddComponent } from './features/admin/pages/brands/brand-add/brand-add.component';
 import { ColorAddComponent } from './features/admin/pages/colors/color-add/color-add.component';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ToastModule} from 'primeng/toast';
+import {DialogModule} from 'primeng/dialog';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +51,11 @@ import { ColorAddComponent } from './features/admin/pages/colors/color-add/color
     ProgressSpinnerModule,
     ListboxModule,
     CardModule,
-    ButtonModule,ReactiveFormsModule,
+    ButtonModule,
+    ReactiveFormsModule,
+    ToastModule,
+    ConfirmDialogModule,
+    DialogModule
 
 
   ],
