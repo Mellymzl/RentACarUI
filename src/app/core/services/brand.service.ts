@@ -5,11 +5,6 @@ import { Observable } from 'rxjs';
 import { BrandAddModel } from '../models/brand/brandAddModel';
 import { BrandModel } from '../models/brand/brandModel';
 
-
-
-
-
-
 @Injectable({
   providedIn: 'root'
 })

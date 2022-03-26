@@ -5,6 +5,8 @@ import { CarAddComponent } from './features/admin/pages/cars/car-add/car-add.com
 import { CarDetailComponent } from './features/admin/pages/cars/car-detail/car-detail.component';
 import { CarComponent } from './features/admin/pages/cars/car/car.component';
 import { ColorAddComponent } from './features/admin/pages/colors/color-add/color-add.component';
+import { LoginComponent } from './features/admin/pages/auth/login/login.component';
+import { UserRegisterComponent } from './features/admin/pages/auth/user-register/user-register.component';
 
 const routes: Routes = [
 
@@ -19,7 +21,8 @@ const routes: Routes = [
   {path:"caradd", component:CarAddComponent},
   {path:"coloradd", component:ColorAddComponent},
   {path:"brandadd", component:BrandAddComponent},
-
+  {path:"login", component:LoginComponent},
+  {path:"register", component:UserRegisterComponent},
 ];
 
 @NgModule({

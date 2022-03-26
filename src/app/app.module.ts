@@ -29,6 +29,8 @@ import {InputNumberModule} from 'primeng/inputnumber';
 import {InputTextModule} from 'primeng/inputtext';
 import {ToolbarModule} from 'primeng/toolbar';
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import { LoginComponent } from './features/admin/pages/auth/login/login.component';
+import { UserRegisterComponent } from './features/admin/pages/auth/user-register/user-register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,9 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     CarDetailComponent,
     CarAddComponent,
     BrandAddComponent,
-    ColorAddComponent
+    ColorAddComponent,
+    LoginComponent,
+    UserRegisterComponent
   ],
   imports: [
     BrowserModule,

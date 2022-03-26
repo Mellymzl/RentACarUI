@@ -12,8 +12,8 @@ import { BrandModel } from 'src/app/core/models/brand/brandModel';
 
 export class BrandComponent implements OnInit {
   brands :BrandModel[];
-  selectedBrand: BrandModel;
 
+  selectedBrand:BrandModel ={id: 1};
   constructor(private brandservice: BrandService) { }
 
   ngOnInit(): void {
