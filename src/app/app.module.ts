@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { NaviComponent } from './features/admin/pages/navi/navi.component';
 import { BrandComponent } from './features/admin/pages/brands/brand/brand.component';
 import {DropdownModule} from 'primeng/dropdown';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {TabMenuModule} from 'primeng/tabmenu';
@@ -31,6 +31,7 @@ import {ToolbarModule} from 'primeng/toolbar';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import { LoginComponent } from './features/admin/pages/auth/login/login.component';
 import { UserRegisterComponent } from './features/admin/pages/auth/user-register/user-register.component';
+import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +70,10 @@ import { UserRegisterComponent } from './features/admin/pages/auth/user-register
 
 
   ],
-  providers: [],
+  providers: [
+
+    {provide:HTTP_INTERCEPTORS ,useClass:AuthInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
