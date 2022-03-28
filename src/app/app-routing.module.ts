@@ -6,7 +6,7 @@ import { CarDetailComponent } from './features/admin/pages/cars/car-detail/car-d
 import { CarComponent } from './features/admin/pages/cars/car/car.component';
 import { ColorAddComponent } from './features/admin/pages/colors/color-add/color-add.component';
 import { LoginComponent } from './features/admin/pages/auth/login/login.component';
-import { UserRegisterComponent } from './features/admin/pages/auth/user-register/user-register.component';
+import { UserRegisterComponent } from './features/admin/pages/user/user-register/user-register.component';
 
 const routes: Routes = [
 

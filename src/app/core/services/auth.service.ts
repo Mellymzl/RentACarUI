@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginModel } from '../models/auth/loginModel';
 import { TokenModel } from '../models/auth/tokenModel';
-import { UserModel } from '../models/auth/userModel';
+import { UserModel } from '../models/user/userModel';
 
 @Injectable({
   providedIn: 'root'

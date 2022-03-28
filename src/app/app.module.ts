@@ -30,8 +30,10 @@ import {InputTextModule} from 'primeng/inputtext';
 import {ToolbarModule} from 'primeng/toolbar';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import { LoginComponent } from './features/admin/pages/auth/login/login.component';
-import { UserRegisterComponent } from './features/admin/pages/auth/user-register/user-register.component';
+import { UserRegisterComponent } from './features/admin/pages/user/user-register/user-register.component';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import {PasswordModule} from 'primeng/password';
+import { UserClaimComponent } from './features/admin/pages/user/user-claim/user-claim.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +46,8 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
     BrandAddComponent,
     ColorAddComponent,
     LoginComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    UserClaimComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +69,8 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
     InputNumberModule,
     InputTextModule,
     InputTextareaModule,
-    ToolbarModule
+    ToolbarModule,
+    PasswordModule
 
 
   ],
