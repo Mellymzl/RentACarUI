@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {  ConfirmationService, MessageService } from 'primeng/api';
+import AddUserClaimModel from 'src/app/core/models/user/addUserClaimModel';
+
 import ClaimModel from 'src/app/core/models/user/claimModel';
 import UserClaimModel from 'src/app/core/models/user/userClaimModel';
 import { UserModel } from 'src/app/core/models/user/userModel';
@@ -19,7 +21,6 @@ export class UserClaimAddComponent implements OnInit {
     users: UserModel[]
     selectedClaim: ClaimModel;
     selectedUser: UserModel;
-    userclaim:UserClaimModel;
   ngOnInit(): void {
 
 
@@ -36,22 +37,26 @@ export class UserClaimAddComponent implements OnInit {
   }
  
 
-  save(userclaim: UserClaimModel) {
+  save(userIdToAdd: number, claimIdToAdd: number) {
 
-    this.confirmationService.confirm({
-      message: 'Güncellemek istediğinize emin misiniz?',
-      accept: () => {
+    var userClaimToAdd:AddUserClaimModel = {userId: userIdToAdd, operationClaimId: claimIdToAdd};
+console.log("userID" + userClaimToAdd.userId);
+console.log("ClaimID " + userClaimToAdd.operationClaimId);
 
-        this.userService.add(this.userclaim).subscribe(data => {
+    //this.confirmationService.confirm({
+    //  message: 'Güncellemek istediğinize emin misiniz?',
+     // accept: () => {
+
+        this.userService.add(userClaimToAdd).subscribe(data => {
 
           this.messageService.add({ severity: 'success', summary: 'Başarılı', detail: '' });
           location.reload();
         });
 
       }
-    });
+   // });
 
-  }
+  //}
 
  
 }

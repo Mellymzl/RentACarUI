@@ -42,6 +42,14 @@ export class UserClaimComponent implements OnInit {
 
     })
 
+    this.userService.getuserclaim().subscribe(data => {
+
+      this.userclaims = data;
+
+
+
+    })
+
   }
   addUserClaim(userclaim_: UserClaimModel) {
 
