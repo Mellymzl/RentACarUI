@@ -34,6 +34,7 @@ import { UserRegisterComponent } from './features/admin/pages/user/user-register
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import {PasswordModule} from 'primeng/password';
 import { UserClaimComponent } from './features/admin/pages/user/user-claim/user-claim.component';
+import { UserClaimAddComponent } from './features/admin/pages/user/user-claim-add/user-claim-add.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +48,8 @@ import { UserClaimComponent } from './features/admin/pages/user/user-claim/user-
     ColorAddComponent,
     LoginComponent,
     UserRegisterComponent,
-    UserClaimComponent
+    UserClaimComponent,
+    UserClaimAddComponent
   ],
   imports: [
     BrowserModule,

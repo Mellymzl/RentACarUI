@@ -1,0 +1,28 @@
+<div class="content">
+    <div class="col-md-12">
+        <ng-template pTemplate="header">
+        </ng-template>
+<ng-template pTemplate="content">
+      
+      
+    <div class="field">
+        <label for="user">Kullanıcı</label>
+        <p-dropdown  [(ngModel)]="selectedUser"  [options]="users" placeholder="Select" optionLabel="name">
+        </p-dropdown>
+    </div>
+    <div class="field">
+        <label for="claim">Marka</label>
+        <p-dropdown [(ngModel)]="selectedClaim" [options]="claims" placeholder="Select" optionLabel="name">
+        </p-dropdown>
+    </div>
+
+
+</ng-template>
+
+<ng-template pTemplate="footer">
+  
+    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="save(userclaim)"></button>
+</ng-template>
+
+    </div>
+</div>
