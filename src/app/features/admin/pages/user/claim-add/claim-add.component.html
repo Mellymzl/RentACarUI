@@ -1,1 +1,27 @@
-<p>claim-add works!</p>
+<div class="p-fluid p-grid">
+    <div class="row my-3">
+
+        <div class="col-md-2">
+            <label for="claim">Rol</label>
+        </div>
+        <div class="col-md-10">
+            <form [formGroup]="claimAddForm">
+                <span class="p-float-label">
+                    <input id="float-input" type="text" pInputText formControlName="name">
+                  
+                </span>
+            </form>
+
+
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-md-12 d-flex justify-content-end">
+            <button  (click)="add()" class="btn btn-md btn-success">Ekle</button>
+
+        </div>
+    </div>
+</div>
+
+<p-toast ></p-toast>

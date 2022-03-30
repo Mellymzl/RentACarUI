@@ -3,7 +3,7 @@ import {  ConfirmationService, MessageService } from 'primeng/api';
 import AddUserClaimModel from 'src/app/core/models/user/addUserClaimModel';
 
 import ClaimModel from 'src/app/core/models/user/claimModel';
-import UserClaimModel from 'src/app/core/models/user/userClaimModel';
+
 import { UserModel } from 'src/app/core/models/user/userModel';
 import { UserService } from 'src/app/core/services/user.service';
 
@@ -21,6 +21,8 @@ export class UserClaimAddComponent implements OnInit {
     users: UserModel[]
     selectedClaim: ClaimModel;
     selectedUser: UserModel;
+    isNew: boolean;
+
   ngOnInit(): void {
 
 
@@ -40,23 +42,39 @@ export class UserClaimAddComponent implements OnInit {
   save(userIdToAdd: number, claimIdToAdd: number) {
 
     var userClaimToAdd:AddUserClaimModel = {userId: userIdToAdd, operationClaimId: claimIdToAdd};
-console.log("userID" + userClaimToAdd.userId);
-console.log("ClaimID " + userClaimToAdd.operationClaimId);
 
-    //this.confirmationService.confirm({
-    //  message: 'Güncellemek istediğinize emin misiniz?',
-     // accept: () => {
+
 
         this.userService.add(userClaimToAdd).subscribe(data => {
 
           this.messageService.add({ severity: 'success', summary: 'Başarılı', detail: '' });
-          location.reload();
-        });
+         
+
+        }
+        
+        , responseError => {
+          var error = "Errors";
+          var detail = "Detail";
+          if (error in responseError.error) {
+            for (
+              let i = 0;i < responseError.error.Errors.length;i++ ) {
+
+              this.messageService.add({ severity: 'error', summary: 'Hata', detail: responseError.error.Errors[i].ErrorMessage });
+
+            }
+          }
+          if (detail in responseError.error) {
+            this.messageService.add({ severity: 'error', summary: 'Hata', detail: responseError.error.Detail, });
+
+
+          }}
+        );
 
       }
-   // });
 
-  //}
+  openNew() {
+    this.isNew = true;
 
+  }
  
 }

@@ -9,6 +9,7 @@ import { LoginComponent } from './features/admin/pages/auth/login/login.componen
 import { UserRegisterComponent } from './features/admin/pages/user/user-register/user-register.component';
 import { UserClaimComponent } from './features/admin/pages/user/user-claim/user-claim.component';
 import { UserClaimAddComponent } from './features/admin/pages/user/user-claim-add/user-claim-add.component';
+import { ClaimAddComponent } from './features/admin/pages/user/claim-add/claim-add.component';
 
 const routes: Routes = [
 
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path:"register", component:UserRegisterComponent},
   {path:"userclaim", component:UserClaimComponent},
   {path:"userclaimadd", component:UserClaimAddComponent},
+  {path:"claimadd", component:ClaimAddComponent},
 ];
 
 @NgModule({

@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.loginForm.value).subscribe(data => {
         localStorage.setItem("token", data.token);
         this.messageService.add({ severity: 'success', summary: 'Başarılı', detail: 'Giriş Yaptınız' });
-        console.log(data.token);
+ 
       }
 
         , responseError => {

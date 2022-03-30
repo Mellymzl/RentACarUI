@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import AddUserClaimModel from '../models/user/addUserClaimModel';
+import ClaimAddModel from '../models/user/claimAddModel';
 import ClaimModel from '../models/user/claimModel';
 import UserClaimModel from '../models/user/userClaimModel';
 import { UserModel } from '../models/user/userModel';
@@ -28,7 +29,7 @@ export class UserService {
     return this.httpClient.post(this.apiUrl + "setuserclaim", userclaim);
 
   }
-  addClaim(claim: ClaimModel) {
+  addClaim(claim: ClaimAddModel) {
     return this.httpClient.post(this.apiClaimUrl + "add", claim);
 
   }
