@@ -1,6 +1,6 @@
 import { Action } from "@ngrx/store";
 import CarAddModel from "../models/car/carAddModel";
-import { CarModel } from "../models/car/carModel";
+
 
 export enum CartActionTypes {
 
@@ -20,7 +20,7 @@ export class AddCar implements Action {
 export class RemoveCar implements Action {
     readonly type: string = CartActionTypes.REMOVE_CAR;
 
-    constructor(public payload: CarModel) {
+    constructor(public payload: CarAddModel) {
 
 
     }

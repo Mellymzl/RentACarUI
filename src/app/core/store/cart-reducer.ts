@@ -11,8 +11,7 @@ export function cartReducer(state = initialState, action: CartActions) {
     switch (action.type) {
         case CartActionTypes.ADD_CAR:
             return [...state, action.payload]
-        case CartActionTypes.REMOVE_CAR:
-            return [...state, action.payload]
+        case CartActionTypes.REMOVE_CAR:       
             let car = action.payload;
             return state.filter((p) => p.name != car.name)
 

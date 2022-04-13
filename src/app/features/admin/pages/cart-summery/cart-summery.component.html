@@ -1,7 +1,8 @@
 <ul>
 
 
-    <li *ngFor=" let car of cart">{{car.name}}</li>
-
+    <li *ngFor=" let car of cart">{{car.name}}
+    <a (click)="removeFromCart(car)">Sepetten sil</a>
+</li>
                   
 </ul>
