@@ -27,6 +27,7 @@
                 <th>Günlük Fiyat</th>
                
                 <th></th>
+            
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-car>
@@ -40,6 +41,8 @@
                 <td>{{car.description}}</td>
                 <td>{{car.dailyPrice}}</td>
                 <td>
+                    <a (click) ="addToCart(car)" >Sepete Ekle</a>
+                 
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editCar(car)"></button>
                     <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteCar(car)"></button>
                 </td>

@@ -10,6 +10,8 @@ import { BrandService } from 'src/app/core/services/brand.service';
 import { ColorService } from 'src/app/core/services/color.service';
 import { BrandModel } from 'src/app/core/models/brand/brandModel';
 import { ColorModel } from 'src/app/core/models/color/colorModel';
+import { Store } from '@ngrx/store';
+import { AddCar, RemoveCar } from 'src/app/core/store/cart-actions';
 @Component({
   selector: 'app-car',
   templateUrl: './car.component.html',
@@ -18,7 +20,10 @@ import { ColorModel } from 'src/app/core/models/color/colorModel';
 export class CarComponent implements OnInit {
 
   constructor(private carService: CarService, private colorService: ColorService, private brandService: BrandService,
-    private activatedRoute: ActivatedRoute, private confirmationService: ConfirmationService, private messageService: MessageService) { }
+    private activatedRoute: ActivatedRoute, private confirmationService: ConfirmationService, private messageService: MessageService,
+    
+    private store: Store
+    ) { }
   cars: CarModel[];
   selectedCar: CarModel;
   brandId: number = 0;
@@ -118,6 +123,15 @@ export class CarComponent implements OnInit {
   openNew() {
     this.isNewCar = true;
 
+  }
+
+  addToCart(car){
+
+    this.store.dispatch(new AddCar(car))
+  }
+  removeFromCart(car){
+
+    this.store.dispatch(new RemoveCar(car))
   }
 
 }

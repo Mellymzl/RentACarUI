@@ -36,6 +36,9 @@ import {PasswordModule} from 'primeng/password';
 import { UserClaimComponent } from './features/admin/pages/user/user-claim/user-claim.component';
 import { UserClaimAddComponent } from './features/admin/pages/user/user-claim-add/user-claim-add.component';
 import { ClaimAddComponent } from './features/admin/pages/user/claim-add/claim-add.component';
+import { StoreModule } from '@ngrx/store';
+import { cartReducer } from './core/store/cart-reducer';
+import { CartSummeryComponent } from './features/admin/pages/cart-summery/cart-summery.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +54,8 @@ import { ClaimAddComponent } from './features/admin/pages/user/claim-add/claim-a
     UserRegisterComponent,
     UserClaimComponent,
     UserClaimAddComponent,
-    ClaimAddComponent
+    ClaimAddComponent,
+    CartSummeryComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +78,8 @@ import { ClaimAddComponent } from './features/admin/pages/user/claim-add/claim-a
     InputTextModule,
     InputTextareaModule,
     ToolbarModule,
-    PasswordModule
+    PasswordModule,
+    StoreModule.forRoot({cartReducer:cartReducer})
 
 
   ],
